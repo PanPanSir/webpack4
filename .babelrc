@@ -1,0 +1,14 @@
+{
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "modules": "commonjs",  //设置ES6 模块转译的模块格式 默认是 commonjs
+        "useBuiltIns": "usage", // babel-polyfill会根据执行环境重写相应的polyfill
+      }
+    ]
+  ],
+  "plugins": [
+    "@babel/transform-react-jsx", //如果是需要支持 jsx 这个东西要单独装一下。
+  ]
+}
