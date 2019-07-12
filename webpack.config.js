@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -6,7 +7,6 @@ module.exports = {
     output: {
         filename: '[name].[hash].js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: "outdist",
     },
     mode: 'development',
     module: {
@@ -25,6 +25,7 @@ module.exports = {
             filename: 'index.html',
             template: __dirname + '/src/index.html'
         }),
+        new webpack.HotModuleReplacementPlugin()
     ],
     devtool: 'source-map',
     devServer: {
