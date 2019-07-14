@@ -1,60 +1,43 @@
 import React from 'react';
+import { Provider } from 'react-redux'
+import { Route, Switch } from 'react-router' // react-router v4/v5
+import { ConnectedRouter } from 'connected-react-router'
+import configureStore, { history } from './configureStore'
 import Home from '../pages/Home.jsx';
 import Face from '../pages/Face.jsx';
 import { AppContainer } from 'react-hot-loader';
-import { HashRouter, Route, matchPath } from 'react-router-dom';
 import ReactDom from 'react-dom';
 
-let s = Symbol();
-typeof s
-console.log('includes!1', Array.prototype.includes('h'));
-async function a() {
-  console.log('begin');
-  await new Promise((resolve) => {
-    setTimeout(() => {
-      resolve();
-    }, 1000)
-  })
-  console.log('done');
-}
-a();
+// if(module.hot) {
+//   module.hot.accept('../pages/Home.jsx', (params) => {
+//       const NewHome = require('../pages/Home.jsx').default;
+//       generateRender(NewHome);
+//   });
+//   module.hot.accept('../pages/Face.jsx', (params) => {
+//       const NewFace = require('../pages/Face.jsx').default;
+//       generateRender(NewFace);
+//   });
+// }
+const store = configureStore({
 
-console.log(Object.values({ 1: 2 }));
-console.log(Array.isArray([]));
-if(module.hot) {
-  const curHref = window.location.href;
-  module.hot.accept('../pages/Home.jsx', (params) => {
-    if (curHref.includes('home')) {
-      const NewHome = require('../pages/Home.jsx').default;
-      generateRender(NewHome);
-    }
-  });
-  module.hot.accept('../pages/Face.jsx', (params) => {
-    if (curHref.includes('face')) {
-      const NewFace = require('../pages/Face.jsx').default;
-      generateRender(NewFace);
-    }
-  });
-}
-console.log('lalalal');
+});
 const generateRender = (NewRouter) => {
-  if (NewRouter) {
-    ReactDom.render(
-      <AppContainer>
-        <HashRouter>
-          <NewRouter />
-        </HashRouter>
-      </AppContainer>,
-        document.getElementById('mainBox')
-    );
-  } else {
-    ReactDom.render(
-        <HashRouter>
-          <Route path="/home" component={Home}></Route>
-          <Route path="/face" component={Face}></Route>
-        </HashRouter>,
-        document.getElementById('mainBox')
-    );
-  }
+  // if (NewRouter) {
+  //   ReactDom.render(
+  //     <AppContainer>
+  //       <NewRouter />
+  //     </AppContainer>,
+  //       document.getElementById('mainBox')
+  //   );
+  // } else {
+  // }
 };
-generateRender();
+ReactDom.render(
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <Route path="/home" component={Home}></Route>
+        <Route path="/face" component={Face}></Route>
+      </ConnectedRouter>
+    </Provider>,
+    document.getElementById('mainBox')
+);
