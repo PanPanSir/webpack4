@@ -9,7 +9,7 @@ class HomeComponent extends Component {
       <button onClick={() => {
         this.props.addNumber(this.props.number);
       }}>+</button>
-      <button onClick={() => this.props.history.push('/face')}>yao face +123</button>
+      <button onClick={() => this.props.history.push('/face')}>yao face</button>
     </div>);
   }
 }   
