@@ -4,8 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: [
-        'react-hot-loader/patch',
-        './src/index.js'
+      'react-hot-loader/patch',
+      './src/index.js'
     ],
     output: {
         filename: '[name].[hash].js',
@@ -22,6 +22,11 @@ module.exports = {
                 ],
             },
         ],
+    },
+    resolve: {
+      alias: {
+        'react-dom': '@hot-loader/react-dom'
+      },
     },
     plugins: [
         new HtmlWebpackPlugin({

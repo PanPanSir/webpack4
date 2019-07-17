@@ -1,4 +1,4 @@
-import { HOME_NUMBER, store } from '../router/reducers';
+import { HOME_NUMBER } from '../../reducers';
 
 const addNumActionCreator = (number) => {
   return ({
@@ -8,7 +8,5 @@ const addNumActionCreator = (number) => {
 };
 export const addNumber = (preNUm) => (dispatch) => {
   const action = addNumActionCreator(preNUm + 1);   
-  console.log('dispatch!!!!!!!!!!!!!!1', dispatch);
-   
-  return store.dispatch(action);
+  return dispatch(action); // 一定要return
 };

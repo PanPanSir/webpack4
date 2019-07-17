@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
-import { withRouter } from 'react-router-dom' 
-import * as actions from './HomeAction';
+import * as actions from './actions';
 
 class HomeComponent extends Component {
   render() {
@@ -11,13 +9,13 @@ class HomeComponent extends Component {
       <button onClick={() => {
         this.props.addNumber(this.props.number);
       }}>+</button>
-      <button onClick={() => this.props.history.push('/face')}>yao face</button>
+      <button onClick={() => this.props.history.push('/face')}>yao face +123</button>
     </div>);
   }
 }   
 
-export default withRouter(connect(state => {
+export default connect(state => {
   return ({
     number: state.home.number,
   });
-}, actions)(HomeComponent));
+}, actions)(HomeComponent);

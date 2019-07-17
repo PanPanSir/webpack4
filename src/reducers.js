@@ -13,7 +13,7 @@ const homeReducer = (state = homeIntialSate, action) => {
   if(action) {
     switch(type) {
       case HOME_NUMBER:
-        return { state, ...playload };
+        return { ...state, ...playload };
         break;
       default:
         return state;
@@ -43,6 +43,4 @@ export const HOME_NUMBER = 'HOME_NUMBER';
 export const homeIntialSate = {
   number: 0,
 };
-export const store = configureStore({
-  home: homeIntialSate,
-});
+export const store = configureStore();
