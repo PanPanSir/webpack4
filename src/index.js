@@ -1,25 +1,23 @@
-import { AppContainer } from 'react-hot-loader'
 import React from 'react';
 import ReactDom from 'react-dom';
 import { Provider } from 'react-redux'
-import { history, store } from './storeAndHistory'
+import { history, configureStore } from './storeAndHistory'
 import App from './components/App';
 
-const render = () => {
+export const store = configureStore();
+const render = (Component) => {
   ReactDom.render(
-    <AppContainer>
       <Provider store={store}>
-        <App history={history} />
-      </Provider>
-    </AppContainer>,
+        <Component history={history} />
+      </Provider>,
     document.getElementById('mainBox')
   );
 };
-render();
+render(App);
 if(module.hot) {
   module.hot.accept('./components/App', () => {
   // 组件UI改变时，保存之前的sotre和history
-      console.log('app change~!!!!!!!!!!!!!');
-      render();
+    console.log('app change~!!!!!!!!!!!!!');
+    render(App);
   });
 }

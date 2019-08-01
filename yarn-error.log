@@ -1,0 +1,77 @@
+Arguments: 
+  /Users/panzhiying/.nvm/versions/node/v8.6.0/bin/node /usr/local/Cellar/yarn/1.13.0/libexec/bin/yarn.js install
+
+PATH: 
+  /usr/local/opt/libxml2/bin:/Applications/flutter/bin:/Users/panzhiying/.nvm/versions/node/v8.6.0/bin:/usr/local/Cellar/bison/3.0.4/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/panzhiying/.rvm/bin:/Users/panzhiying/.bin/apache-maven-3.3.9/bin:/usr/local/mysql/bin:/Users/panzhiying/.vimpkg/bin
+
+Yarn version: 
+  1.13.0
+
+Node version: 
+  8.6.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: getaddrinfo ENOTFOUND bnpm.byted.org bnpm.byted.org:80
+      at errnoException (dns.js:53:10)
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:95:26)
+
+npm manifest: 
+  {
+    "name": "src",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "build": "rm -rf dist && webpack",
+      "dev": "webpack-dev-server --open --mode development"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "@babel/core": "^7.5.0",
+      "@babel/plugin-transform-runtime": "^7.5.0",
+      "@babel/polyfill": "^7.4.4",
+      "@babel/preset-env": "^7.5.2",
+      "@babel/preset-react": "^7.0.0",
+      "@babel/runtime": "^7.5.2",
+      "@babel/runtime-corejs2": "^7.5.2",
+      "@hot-loader/react-dom": "^16.8.6",
+      "babel-loader": "^8.0.6",
+      "babel-plugin-transform-runtime": "^6.23.0",
+      "connected-react-router": "^6.5.2",
+      "css-loader": "^3.0.0",
+      "es6-promisify": "^6.0.1",
+      "file-loader": "^4.0.0",
+      "history": "^4.9.0",
+      "html-webpack-plugin": "^3.2.0",
+      "mini-css-extract-plugin": "^0.7.0",
+      "path": "^0.12.7",
+      "react": "^16.8.6",
+      "react-dom": "^16.8.6",
+      "react-hot-loader": "^4.12.5",
+      "react-redux": "^7.1.0",
+      "react-router": "^5.0.1",
+      "react-router-config": "^5.0.1",
+      "react-router-dom": "^5.0.1",
+      "react-router-redux": "^4.0.8",
+      "redux": "^4.0.4",
+      "redux-logger": "^3.0.6",
+      "redux-thunk": "^2.3.0",
+      "webpack": "^4.35.3",
+      "webpack-cli": "^3.3.5",
+      "webpack-dev-server": "^3.7.2"
+    },
+    "devDependencies": {
+      "core-js": "^2.6.9"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

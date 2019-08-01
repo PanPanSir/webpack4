@@ -11,7 +11,7 @@ export const createRootReducer = (history) => combineReducers({
   router: connectRouter(history),
   home: homeReducer, 
 });
-export default function configureStore(preloadedState) {
+export function configureStore(preloadedState) {
   const store = createStore(
     createRootReducer(history), // root reducer with router state
     preloadedState,
@@ -29,4 +29,3 @@ export default function configureStore(preloadedState) {
   }
   return store
 };
-export const store = configureStore();

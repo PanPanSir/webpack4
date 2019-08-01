@@ -1,5 +1,5 @@
 import React from 'react';
-import { hot } from 'react-hot-loader';
+import { hot } from 'react-hot-loader/root';
 import { ConnectedRouter } from 'connected-react-router'
 import { routes } from '../routes';
 
@@ -11,4 +11,5 @@ const App = ({ history }) => {
   )
 };
 // 一定要包一下，否则module.hot监听不到app的变化
-export default hot(module)(App);
+export default hot(App);
+// export default App;
