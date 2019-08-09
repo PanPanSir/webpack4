@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: [
@@ -21,6 +22,24 @@ module.exports = {
                     { loader: 'babel-loader' }
                 ],
             },
+            {
+                test: /\.css$/,
+                use: [
+                    {loader: "style-loader"}, // 创建style标签，并将css添加进去
+                    {
+                      loader: "css-loader",
+                      options:{
+                        modules:true,
+                        modules: {
+                          localIdentName:'[path][name]__[local]--[hash:base64:5]',
+                        }, // class 的名字编译规则，保证每一个class唯一性，造成局部样式的假象
+                        sourceMap: true,
+                        importLoaders: 2,
+                      },
+                    }, // 编译css
+                ],
+                exclude: /node_modules/
+            },
         ],
     },
     resolve: {
@@ -29,11 +48,12 @@ module.exports = {
       },
     },
     plugins: [
+        new CleanWebpackPlugin(), // 每次build时将dist目录清空
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: __dirname + '/src/index.html'
         }),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
     ],
     devtool: 'eval',
     devServer: {

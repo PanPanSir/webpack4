@@ -3,6 +3,7 @@ import ReactDom from 'react-dom';
 import { Provider } from 'react-redux'
 import { history, configureStore } from './storeAndHistory'
 import App from './components/App';
+import './components/home/home.css';
 
 export const store = configureStore();
 const render = (Component) => {

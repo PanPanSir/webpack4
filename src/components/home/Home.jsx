@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from './actions';
+import * as styles from './home.css';
 
 class HomeComponent extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class HomeComponent extends Component {
         console.log('hahhhalallal!!!!');
   }
   componentDidMount() {
-    console.log('!!!!!!!!!!!!!!!!!###########');
+    console.log('!!!!!!!!!!!!!!!!!###########', styles);
   }
   updateInterState(newState) {
     this.setState(newState);
@@ -34,7 +35,7 @@ class HomeComponent extends Component {
       }}>+</button>
       <button onClick={() => this.props.history.push('/face')}>yao face</button>
       <button onClick={() => this.updateInterState({ innerNum: innerNum + 1 })}> 加 inner number !!{innerNum}</button>
-      <div>{didMountText}</div>
+      <div className={styles.mainConainer}>{didMountText}</div>
     </div>);
   }
 }   
