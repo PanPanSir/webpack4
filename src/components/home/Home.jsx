@@ -21,15 +21,16 @@ class HomeComponent extends Component {
         console.log('hahhhalallal!!!!');
   }
   componentDidMount() {
-    console.log('!!!!!!!!!!!!!!!!!###########', styles);
   }
   updateInterState(newState) {
     this.setState(newState);
   }
   render() {
     const { innerNum, didMountText } = this.state;
+    console.log('!!!!!!!!!!!!!!!1', this.props.catImg);
     return (<div>
       <div>{this.props.number}</div>
+      <img className={styles.catImg} src={this.props.catImg} />
       <button onClick={() => {
         this.props.addNumber(this.props.number);
       }}>+</button>
@@ -43,5 +44,6 @@ class HomeComponent extends Component {
 export default connect(state => {
   return ({
     number: state.home.number,
+    catImg: state.home.catImg,
   });
 }, actions)(HomeComponent);
