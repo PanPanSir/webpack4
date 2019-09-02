@@ -8,3 +8,8 @@
   width: 100px;
   height: 100px;
 }
+/* 无用的css不会被打包进来 */
+.useless-css {
+  width: 100px;
+  height: 100px;
+}

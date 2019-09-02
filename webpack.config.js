@@ -3,6 +3,8 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const PurifyCSS = require('purifycss-webpack');
+const glob = require('glob-all');
 
 module.exports = {
     entry: [
@@ -73,7 +75,23 @@ module.exports = {
           filename: "[name].css",
           chunkFilename: "[id].css"
         }),
+        new webpack.DefinePlugin({
+          'process.env': { // 在环境变量中注入全局变量
+            VUEP_BASE_URL: JSON.stringify('http://localhost:9000')
+          }
+        }),
+        new PurifyCSS({
+          paths: glob.sync([
+            // 要做 CSS Tree Shaking 的路径文件，样式文件中没有被引用的css不会被打包进来
+            path.resolve(__dirname, './src/*.*'), // 请注意，我们同样需要对 html 文件进行 tree shaking
+          ])
+        })
     ],
+    optimization: {
+      splitChunks: {
+        chunks: "all", // 所有的 chunks 代码公共的部分分离出来成为一个单独的文件
+      },
+    },
     devtool: 'eval',
     devServer: {
       hot: true,

@@ -18,7 +18,6 @@ class HomeComponent extends Component {
       innerNum: 13,
       didMountText: 'hot update时，你猜did mount和constructor有没有执行',
     };
-        console.log('hahhhalallal!!!!');
   }
   componentDidMount() {
   }
@@ -27,7 +26,6 @@ class HomeComponent extends Component {
   }
   render() {
     const { innerNum, didMountText } = this.state;
-    console.log('!!!!!!!!!!!!!!!1', this.props.catImg);
     return (<div>
       <div>{this.props.number}</div>
       <img className={styles.catImg} src={this.props.catImg} />
