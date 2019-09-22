@@ -17,9 +17,19 @@ module.exports = {
         filename: '[name].[hash].js',
         path: path.resolve(__dirname, 'dist'),
     },
+    optimization: {
+      splitChunks: {
+        chunks: "all", // 所有的 chunks 代码公共的部分分离出来成为一个单独的文件
+      },
+      usedExports: true, // 做 js tree shaking
+    },
     mode: 'development',
     module: {
         rules: [
+            {
+              test: /\.*$/,
+              sideEffects: false,
+            },
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
@@ -87,11 +97,6 @@ module.exports = {
           ])
         })
     ],
-    optimization: {
-      splitChunks: {
-        chunks: "all", // 所有的 chunks 代码公共的部分分离出来成为一个单独的文件
-      },
-    },
     devtool: 'eval',
     devServer: {
       hot: true,

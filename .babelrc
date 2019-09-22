@@ -1,7 +1,7 @@
 {
   "presets": [
     [
-      "@babel/env",
+      "@babel/preset-env",
       {
         "modules": "commonjs",  //设置ES6 模块转译的模块格式 默认是 commonjs
         "useBuiltIns": "usage", // babel-polyfill会根据执行环境重写相应的polyfill

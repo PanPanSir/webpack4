@@ -1,6 +1,7 @@
 import { HOME_NUMBER } from '../../reducers';
 import catImg from '../../asset/catcat.jpeg';
 import Dataloader from 'dataloader';
+import { uselessFunction } from './useless.js';
 
 const addNumActionCreator = (number, catImg) => {
   return ({

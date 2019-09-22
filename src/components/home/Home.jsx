@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from './actions';
+import { addNumber } from './actions';
 import * as styles from './home.css';
 
 class HomeComponent extends Component {
@@ -44,4 +44,4 @@ export default connect(state => {
     number: state.home.number,
     catImg: state.home.catImg,
   });
-}, actions)(HomeComponent);
+}, { addNumber })(HomeComponent);
